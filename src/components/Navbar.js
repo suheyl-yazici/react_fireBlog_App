@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
+import cwLogo from "../assets/cw.jpeg";
+
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -28,7 +30,7 @@ const Navbar = () => {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="xxl">
         <Toolbar style={{ justifyContent: "space-between" }}>
           <Typography
             variant="h6"
@@ -37,10 +39,10 @@ const Navbar = () => {
             sx={{ mr: 2, display: { md: "flex" } }}
           >
             <Button
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{ my: 2, display: "block" }}
               onClick={() => navigate("/")}
             >
-              Logo1
+              <img src={cwLogo} alt="cwlogo" height={25} width={30}/>
             </Button>
           </Typography>
 
@@ -63,7 +65,7 @@ const Navbar = () => {
                 sx={{ p: 0 }}
                 size="large"
               >
-                <AccountCircle style={{ color: "white" }} />
+                <AccountCircle style={{ color: "white", height:45,width:45}} />
               </IconButton>
             </Tooltip>
             <Menu

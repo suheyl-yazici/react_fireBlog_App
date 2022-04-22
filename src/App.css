@@ -37,3 +37,19 @@
   }
 }
 
+.card-header {
+  background-color: #61dafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-top: 2rem;
+}
+
+.card-header-text{
+  margin-top: .5rem;
+}
+
+.container{
+  background-image: "https://picsum.photos/800/800";
+}
