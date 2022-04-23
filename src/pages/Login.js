@@ -10,8 +10,22 @@ import Typography from "@mui/material/Typography";
 import "../App.css";
 import Container from "@mui/material/Container";
 import googleImg from "../assets/google.png";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signIn } from "../helpers/firebase";
 
 const Login = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signIn(email,password,navigate);
+  }
+
+
   return (
     <div
       style={{
@@ -32,7 +46,8 @@ const Login = () => {
             marginTop: 70,
             display: "flex",
             justifyContent: "center",
-            backgroundColor: "red",
+            position:"relative",
+            top:45
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
@@ -54,7 +69,7 @@ const Login = () => {
             </div>
             <CardContent>
               <Box style={{ backgroundColor: "white", padding: "20px" }}>
-                <form>
+                <form onSubmit={handleSubmit} >
                   <Stack spacing={2} direction="column">
                     <TextField
                       id="email"
@@ -62,6 +77,8 @@ const Login = () => {
                       variant="outlined"
                       required
                       helperText="Email is required"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                     <TextField
                       required
@@ -70,6 +87,8 @@ const Login = () => {
                       type="password"
                       autoComplete="current-password"
                       helperText="Password is required"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </Stack>
                   <Stack
@@ -77,7 +96,7 @@ const Login = () => {
                     direction="column"
                     style={{ marginTop: "20px" }}
                   >
-                    <Button variant="contained">LOGIN</Button>
+                    <Button variant="contained" type="submit">LOGIN</Button>
                     <Button variant="outlined">
                       With
                       <img

@@ -10,9 +10,26 @@ import Typography from "@mui/material/Typography";
 import "../App.css";
 import Container from "@mui/material/Container";
 import googleImg from "../assets/google.png";
+import { createUser } from "../helpers/firebase";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createUser(email,password,navigate);
+  }
+
   return (
+   
     <div
       style={{
         backgroundImage: `url("https://picsum.photos/800/800")`,
@@ -32,6 +49,8 @@ const Register = () => {
             marginTop: 70,
             display: "flex",
             justifyContent: "center",
+            position:"relative",
+            top:45
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
@@ -60,7 +79,7 @@ const Register = () => {
                   justifyContent: "center",
                 }}
               >
-                <form>
+                 <form onSubmit={handleSubmit} >
                   <Stack spacing={2} direction="column">
                     <TextField
                       id="email"
@@ -68,39 +87,38 @@ const Register = () => {
                       variant="outlined"
                       required
                       helperText="Email is required"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
-                    <TextField
+
+                     <TextField
                       required
                       id="outlined-password-input"
                       label="Password"
                       type="password"
                       autoComplete="current-password"
                       helperText="Password is required"
-                    />
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    /> 
                   </Stack>
                   <Stack
                     spacing={2}
                     direction="column"
                     style={{ marginTop: "20px" }}
                   >
-                    <Button variant="contained">REGISTER</Button>
-                    <Button variant="outlined">
-                      With
-                      <img
-                        src={googleImg}
-                        alt="google"
-                        height={30}
-                        width={45}
-                      />
-                    </Button>
+                    <Button variant="contained" type="submit">REGISTER</Button>
+                    <Button variant="outlined">With<img src={googleImg} alt="google" 
+                    height={30} width={45} /></Button>
                   </Stack>
-                </form>
+                  </form>
               </Box>
             </CardContent>
           </div>
         </Card>
       </Container>
     </div>
+    
   );
 };
 
