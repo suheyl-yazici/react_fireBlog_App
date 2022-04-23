@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import "../App.css";
 import Container from "@mui/material/Container";
 import googleImg from "../assets/google.png";
-import { createUser } from "../helpers/firebase";
+import { createUser, signUpProvider } from "../helpers/firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -24,12 +24,16 @@ const Register = () => {
 
 
   const handleSubmit = (e) => {
+    const displayName = email;
     e.preventDefault();
-    createUser(email,password,navigate);
+    createUser(email,password,navigate,displayName);
+  }
+  const handleGoogleProvider = () => {
+    signUpProvider(navigate);
   }
 
   return (
-   
+  
     <div
       style={{
         backgroundImage: `url("https://picsum.photos/800/800")`,
@@ -108,7 +112,7 @@ const Register = () => {
                     style={{ marginTop: "20px" }}
                   >
                     <Button variant="contained" type="submit">REGISTER</Button>
-                    <Button variant="outlined">With<img src={googleImg} alt="google" 
+                    <Button variant="outlined" onClick={handleGoogleProvider}>With<img src={googleImg} alt="google" 
                     height={30} width={45} /></Button>
                   </Stack>
                   </form>

@@ -12,7 +12,7 @@ import Container from "@mui/material/Container";
 import googleImg from "../assets/google.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signIn } from "../helpers/firebase";
+import { signIn, signUpProvider } from "../helpers/firebase";
 
 const Login = () => {
 
@@ -23,14 +23,17 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(email,password,navigate);
+  } 
+  const handleGoogleProvider = () => {
+    signUpProvider(navigate);
+    
   }
-
 
   return (
     <div
       style={{
         backgroundImage: `url("https://picsum.photos/800/800")`,
-        height: "90vh",
+        height: "100vh",
         marginTop: "-570px",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -97,7 +100,7 @@ const Login = () => {
                     style={{ marginTop: "20px" }}
                   >
                     <Button variant="contained" type="submit">LOGIN</Button>
-                    <Button variant="outlined">
+                    <Button variant="outlined" onClick={handleGoogleProvider}>
                       With
                       <img
                         src={googleImg}
