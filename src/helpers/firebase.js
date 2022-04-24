@@ -67,3 +67,5 @@ export const signUpProvider = (navigate) => {
     console.log(error);
   });
 }
+
+export default app;

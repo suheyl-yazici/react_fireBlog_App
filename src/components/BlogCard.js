@@ -5,53 +5,48 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useFetch } from '../helpers/function';
+
 
 const BlogCard = () => {
+
+  const {isLoading,contactBlog} =  useFetch();
+
+
   return (
     <div style={{display:"flex", flexWrap:"wrap", gap:40,margin:10}}>
-      <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-      component="img"
-      alt="green iguana"
-      height="140"
-      image="https://cdn.pixabay.com/photo/2022/04/18/19/51/rocks-7141482_960_720.jpg"
-      objectFit='contain'
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        Lizard
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Share</Button>
-      <Button size="small">Learn More</Button>
-    </CardActions>
-  </Card>
-  <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-      component="img"
-      alt="green iguana"
-      height="140"
-      image="/static/images/cards/contemplative-reptile.jpg"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        Lizard
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Share</Button>
-      <Button size="small">Learn More</Button>
-    </CardActions>
-  </Card>
+      {isLoading ? (
+        <h1>Loading</h1>
+      ) : 
+      contactBlog?.length === 0 ?
+      (
+        <h1>veri bulunamadı</h1>
+      ) :  (
+        contactBlog?.map((item,index) =>(
+          <Card sx={{ maxWidth: 345,width:425,height:330,display:"block" }} key={index}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="180"
+                image={item.image}
+                objectFit='contain'
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                 {item.content}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Edit</Button>
+                <Button size="small" onClick={() => {DeleteBlog}}>Delete</Button>
+              </CardActions>
+            </Card>
+        ))
+      )}
+      
   </div>
   )
 }

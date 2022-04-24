@@ -21,7 +21,8 @@ import { AuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const {currentUser} = useContext(AuthContext)
+  const {currentUser} = useContext(AuthContext);
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
