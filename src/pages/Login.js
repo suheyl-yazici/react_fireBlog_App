@@ -26,7 +26,6 @@ const Login = () => {
   } 
   const handleGoogleProvider = () => {
     signUpProvider(navigate);
-    
   }
 
   return (
@@ -50,7 +49,8 @@ const Login = () => {
             display: "flex",
             justifyContent: "center",
             position:"relative",
-            top:45
+            top:45,
+            boxShadow:100
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>

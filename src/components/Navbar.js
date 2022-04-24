@@ -30,7 +30,7 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
   const navigate = useNavigate();
-
+  
   return (
     <AppBar position="static">
       <Container maxWidth="xxl">

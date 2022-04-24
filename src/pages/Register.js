@@ -80,7 +80,7 @@ const Register = () => {
                   backgroundColor: "white",
                   padding: "20px",
                   display: "flex",
-                  justifyContent: "center",
+                  justifyContent: "center"
                 }}
               >
                  <form onSubmit={handleSubmit} >
@@ -94,7 +94,6 @@ const Register = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-
                      <TextField
                       required
                       id="outlined-password-input"
@@ -122,7 +121,6 @@ const Register = () => {
         </Card>
       </Container>
     </div>
-    
   );
 };
 
