@@ -9,7 +9,7 @@ import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { AddBlog } from "../helpers/function";
+import { AddBlog,EditBlog } from "../helpers/function";
 
 const initialValues={title:"", image:"",content:""}
 
@@ -28,8 +28,14 @@ const handleChange = (e) => {
 const handleFormSubmit = (e) => {
   e.preventDefault();
   console.log(info);
-  AddBlog(info);
+  if (info.id) {
+    EditBlog(info)
+  } else {AddBlog(info)}
   setInfo(initialValues)
+}
+
+const editHandler=(id,title,image,content) => {
+  setInfo({id,title,image,content})
 }
 
   return (

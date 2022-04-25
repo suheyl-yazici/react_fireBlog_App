@@ -40,7 +40,7 @@ const BlogCard = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small">Edit</Button>
+                <Button size="small" /* onClick={() =>{EditHandler(item.id,item.title,item.image,item.content)}} */>Edit</Button>
                 <Button size="small" onClick={() => {DeleteBlog(item.id)}}>Delete</Button>
               </CardActions>
             </Card>
