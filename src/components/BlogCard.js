@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useFetch } from '../helpers/function';
+import { DeleteBlog, useFetch } from '../helpers/function';
 
 
 const BlogCard = () => {
@@ -29,7 +29,7 @@ const BlogCard = () => {
                 alt="green iguana"
                 height="180"
                 image={item.image}
-                objectFit='contain'
+                objectfit='contain'
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -41,12 +41,11 @@ const BlogCard = () => {
               </CardContent>
               <CardActions>
                 <Button size="small">Edit</Button>
-                <Button size="small" onClick={() => {DeleteBlog}}>Delete</Button>
+                <Button size="small" onClick={() => {DeleteBlog(item.id)}}>Delete</Button>
               </CardActions>
             </Card>
         ))
       )}
-      
   </div>
   )
 }

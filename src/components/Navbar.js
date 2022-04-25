@@ -46,7 +46,7 @@ const Navbar = () => {
               sx={{ my: 2, display: "block" }}
               onClick={() => navigate("/")}
             >
-              <img src={cwLogo} alt="cwlogo" height={50} width={60} />
+              <img src={cwLogo} alt="cwlogo" height={40} width={50} />
             </Button>
           </Typography>
 
@@ -78,12 +78,12 @@ const Navbar = () => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <AccountCircle
-                  style={{ color: "white", height: 40, width: 40 }}
+                  style={{ color: "white", height: 35, width: 35 }}
                 />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: "45px" }}
+              sx={{ mt: "40px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{

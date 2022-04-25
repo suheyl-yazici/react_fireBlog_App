@@ -1,5 +1,5 @@
-import firebase from "./firebase";
-import { getDatabase, onValue, push, ref, set } from "firebase/database";
+// import firebase from "./firebase";
+import { getDatabase, onValue, push, ref, remove, set } from "firebase/database";
 import { useEffect, useState } from "react";
 
 
@@ -41,4 +41,11 @@ export const useFetch = () => {
     
 },[])
 return {isloading,contactBlog}
+}
+
+export const DeleteBlog = (id) => {
+    const db = getDatabase();
+    // const userRef = ref(db,"baglantı");
+
+    remove(ref(db,"baglantı/" + id));
 }

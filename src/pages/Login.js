@@ -31,12 +31,20 @@ const Login = () => {
   return (
     <div
       style={{
-        backgroundImage: `url("https://picsum.photos/800/800")`,
+        // backgroundImage: `url("https://picsum.photos/800/800")`,
+        // height: "100vh",
+        // marginTop: "-570px",
+        // backgroundSize: "cover",
+        // backgroundRepeat: "no-repeat",
+        // boxSizing: "border-box",
+        width:"100%",
         height: "100vh",
-        marginTop: "-570px",
-        backgroundSize: "cover",
+        backgroundImage: `url(https://picsum.photos/1000/1000)`,
         backgroundRepeat: "no-repeat",
-        boxSizing: "border-box",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        paddingTop: 2,
       }}
     >
       <Container maxWidth="sm">
@@ -45,11 +53,9 @@ const Login = () => {
             minWidth: 275,
             width: 500,
             height: 650,
-            marginTop: 70,
+            marginTop: 3,
             display: "flex",
             justifyContent: "center",
-            position:"relative",
-            top:45,
             boxShadow:100
           }}
         >

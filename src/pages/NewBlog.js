@@ -9,14 +9,12 @@ import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { getAdditionalUserInfo } from "firebase/auth";
 import { AddBlog } from "../helpers/function";
 
 const initialValues={title:"", image:"",content:""}
 
 
 const NewBlog = () => {
-
 
 
   const [info, setInfo] = useState(initialValues)
@@ -64,7 +62,6 @@ const handleFormSubmit = (e) => {
                 ── NEW BLOG ──{" "}
               </Typography>
               <TextField
-                fullWidth
                 id="title"
                 label="Title*"
                 variant="outlined"
