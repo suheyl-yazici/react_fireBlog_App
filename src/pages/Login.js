@@ -10,14 +10,18 @@ import Typography from "@mui/material/Typography";
 import "../App.css";
 import Container from "@mui/material/Container";
 import googleImg from "../assets/google.png";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { signIn, signUpProvider } from "../helpers/firebase";
+// import { signIn, signUpProvider } from "../helpers/firebase";
+import { AuthContext } from "../contexts/AuthContext";
+
 
 const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {signIn,signUpProvider} = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {

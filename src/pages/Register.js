@@ -11,8 +11,9 @@ import "../App.css";
 import Container from "@mui/material/Container";
 import googleImg from "../assets/google.png";
 import { createUser, signUpProvider } from "../helpers/firebase";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 
 
@@ -21,6 +22,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const {createUser,signUpProvider} = useContext(AuthContext);
 
 
   const handleSubmit = (e) => {
