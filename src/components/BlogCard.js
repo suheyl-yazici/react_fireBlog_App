@@ -5,11 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { DeleteBlog, useFetch } from '../helpers/function';
+import { useState,useContext } from "react";
+import { BlogContext } from "../contexts/BlogContext";
 
 
 const BlogCard = () => {
 
+  const { DeleteBlog, useFetch } = useContext(BlogContext);
   const {isLoading,contactBlog} =  useFetch();
 
 

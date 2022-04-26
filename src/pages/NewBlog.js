@@ -8,8 +8,10 @@ import Avatar from "@mui/material/Avatar";
 import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useState } from "react";
-import { AddBlog,EditBlog } from "../helpers/function";
+import { useState,useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { BlogContext } from "../contexts/BlogContext";
+
 
 const initialValues={title:"", image:"",content:""}
 
@@ -18,6 +20,9 @@ const NewBlog = () => {
 
 
   const [info, setInfo] = useState(initialValues)
+  const { AddBlog, EditBlog } = useContext(BlogContext);
+  const navigate = useNavigate();
+
 
 const handleChange = (e) => {
   e.preventDefault();
@@ -32,6 +37,8 @@ const handleFormSubmit = (e) => {
     EditBlog(info)
   } else {AddBlog(info)}
   setInfo(initialValues)
+  navigate("/")
+
 }
 
 const editHandler=(id,title,image,content) => {
@@ -65,7 +72,7 @@ const editHandler=(id,title,image,content) => {
                 sx={{ width: 200, height: 200, marginX: "auto" }}
               />
               <Typography sx={{ fontSize: 20 }} color="text.secondary">
-                ── NEW BLOG ──{" "}
+                ── NEW BLOG ──
               </Typography>
               <TextField
                 id="title"
