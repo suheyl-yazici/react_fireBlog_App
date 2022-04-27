@@ -7,13 +7,22 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useState,useContext } from "react";
 import { BlogContext } from "../contexts/BlogContext";
-
+import IconButton from "@mui/material/IconButton";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import { Box } from '@mui/system';
+import { useNavigate } from "react-router";
 
 const BlogCard = () => {
 
   const { DeleteBlog, useFetch } = useContext(BlogContext);
   const {isLoading,contactBlog} =  useFetch();
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate("/details");
+  }
 
   return (
     <div style={{display:"flex", flexWrap:"wrap", gap:40,margin:10}}>
@@ -25,26 +34,54 @@ const BlogCard = () => {
         <h1>veri bulunamadı</h1>
       ) :  (
         contactBlog?.map((item,index) =>(
-          <Card sx={{ maxWidth: 345,width:425,height:330,display:"block" }} key={index}>
+          <Card sx={{ maxWidth: 345,width:445,height:370,display:"block",marginX:"auto",marginBottom:1 }} key={index}>
+              
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="180"
+                height="40%"
                 image={item.image}
                 objectfit='contain'
+                onClick={handleClick}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                
+              <CardContent onClick={handleClick} sx={{ color: "black",textAlign:"start",backgroundColor: "#EFEEFE",fontFamily: "Girassol",textTransform:"capitalize" }}>
+                <Typography gutterBottom variant="h6" component="div" sx={{textTransform:"uppercase"}}>
                   {item.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                 {item.content}
+                 {/* {item.content} */}
+                 23.02.02
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{paddingTop: ".2rem" ,textAlign:"start"}}>
+                  {`${item.content}`.substring(0, 100) + '...'}
+                  </Typography>
+              </CardContent>
+              
+              <CardContent sx={{ color: "black",textAlign:"start", width:"100%" }}>
+                <Typography sx={{marginTop:-2}}
+                >
+                  <IconButton >
+                    <AccountCircleIcon fontSize="medium" />
+                  </IconButton>
+                  {/* {item.author} */}
+                  sdasdasdasdasdasd
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button size="small" /* onClick={() =>{EditHandler(item.id,item.title,item.image,item.content)}} */>Edit</Button>
+              <CardActions sx={{marginTop:-2}}>
+                    <IconButton aria-label="add to favorites">
+                      <FavoriteIcon />
+                    </IconButton>
+                    <span>1</span>
+                    <IconButton aria-label="comment">
+                      <ChatBubbleOutlineIcon />
+                    </IconButton>
+                    <span>1</span>
+        </CardActions>
+              {/* <CardActions>
+                <Button size="small"  onClick={() =>{EditHandler(item.id,item.title,item.image,item.content)}} >Edit</Button>
                 <Button size="small" onClick={() => {DeleteBlog(item.id)}}>Delete</Button>
-              </CardActions>
+              </CardActions> */}
             </Card>
         ))
       )}

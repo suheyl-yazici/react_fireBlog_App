@@ -9,7 +9,7 @@ const BlogForm = () => {
     <React.Fragment>
     <CssBaseline />
     <Container maxWidth="xxl">
-      <Box sx={{ bgcolor: 'red', height: '100vh' }} >
+      <Box sx={{ height: '100%' }} >
         <BlogCard />
       </Box>
     </Container>

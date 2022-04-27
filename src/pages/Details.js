@@ -13,13 +13,22 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { BlogContext } from "../contexts/BlogContext";
+import { useContext } from 'react';
+
 
 const Details = () => {
+
+  const { DeleteBlog, useFetch } = useContext(BlogContext);
+
+
   return (
     <React.Fragment>
     <CssBaseline />
     <Container maxWidth="xxl">
-      <h2>──── DETAILS ────</h2>
+    <Typography variant="h2" component="div">
+    ──── DETAILS ────
+    </Typography>
       <Box sx={{ height: '92%' }}>
         <Card sx={{ width:"85%" , height:"88%",display:"block",margin:"auto"}}>
         <CardMedia
@@ -35,6 +44,7 @@ const Details = () => {
               backgroundColor: "#EFEEFE",
               padding: "0.5rem",
               fontFamily: "Girassol",
+              textTransform:"uppercase"
             }}>
                   <Typography gutterBottom variant="h5" component="div">
                     {/* {item.title} */}
@@ -75,7 +85,7 @@ const Details = () => {
       </Box>
       <Stack direction="row" sx={{display:"flex", justifyContent:"space-around",marginY:3}}>
                 <Button size="large" variant="contained" color="primary"/* onClick={() =>{EditHandler(item.id,item.title,item.image,item.content)}} */>Update</Button>
-                <Button size="large" variant="contained" color="error" /* onClick={() => {DeleteBlog(item.id)}} */>Delete</Button>
+                <Button size="large" variant="contained" color="error"  onClick={() => {DeleteBlog()}}>Delete</Button>
                 </Stack>
     </Container>
   </React.Fragment>

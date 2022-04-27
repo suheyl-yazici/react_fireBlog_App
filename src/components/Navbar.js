@@ -14,7 +14,6 @@ import {
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
 import cwLogo from "../assets/cw.jpeg";
-// import { logOut } from "../helpers/firebase";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 

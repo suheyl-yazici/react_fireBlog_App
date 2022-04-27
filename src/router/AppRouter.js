@@ -7,6 +7,7 @@ import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
 import Details from "../pages/Details";
+import UpdateBlog from "../pages/UpdateBlog";
 
 const AppRouter = () => {
   return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
             <Route path="/profil" element={<Profile />} />
             <Route path="/newblog" element={<NewBlog />} />
             <Route path="/details" element={<Details />} />
+            <Route path="/updateBlog" element={<UpdateBlog />} />
         </Routes>
     </Router>
   )

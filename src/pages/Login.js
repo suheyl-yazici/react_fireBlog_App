@@ -12,7 +12,6 @@ import Container from "@mui/material/Container";
 import googleImg from "../assets/google.png";
 import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
-// import { signIn, signUpProvider } from "../helpers/firebase";
 import { AuthContext } from "../contexts/AuthContext";
 
 

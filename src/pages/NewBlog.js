@@ -61,11 +61,11 @@ const editHandler=(id,title,image,content) => {
             width: "100%",
             display: "flex",
             justifyContent: "center",
-            marginTop: 4,
+            marginTop: 3,
           }}
         >
           <form onSubmit={handleFormSubmit}>
-            <Stack spacing={2} sx={{ width: "45vh" }}>
+            <Stack spacing={2} sx={{ width: "45vh"}}>
               <Avatar
                 alt="blog"
                 src={BlokImg}
@@ -95,7 +95,7 @@ const editHandler=(id,title,image,content) => {
                 label="Content*"
                 variant="outlined"
                 multiline
-                minRows={10}
+                minRows={8}
                 value={info.content}
                 onChange={handleChange}
                 name="content"
