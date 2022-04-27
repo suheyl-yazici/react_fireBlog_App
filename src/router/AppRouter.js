@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
+import Details from "../pages/Details";
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
             <Route path="*" element={<NotFound />} />
             <Route path="/profil" element={<Profile />} />
             <Route path="/newblog" element={<NewBlog />} />
+            <Route path="/details" element={<Details />} />
         </Routes>
     </Router>
   )

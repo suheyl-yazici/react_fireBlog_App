@@ -30,6 +30,7 @@ const handleChange = (e) => {
   // console.log(name,value);
   setInfo({...info, [name]:value})
 }
+
 const handleFormSubmit = (e) => {
   e.preventDefault();
   console.log(info);
@@ -38,7 +39,6 @@ const handleFormSubmit = (e) => {
   } else {AddBlog(info)}
   setInfo(initialValues)
   navigate("/")
-
 }
 
 const editHandler=(id,title,image,content) => {

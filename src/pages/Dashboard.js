@@ -10,7 +10,7 @@ const Dashboard = () => {
     <CssBaseline />
     <Container maxWidth="xxl">
       <h2>──── Dashboard ────</h2>
-      <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} >
+      <Box sx={{ bgcolor: '#cfe1fc', height: '100vh' }} >
         <BlogForm />
       </Box>
     </Container>
