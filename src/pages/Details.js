@@ -15,13 +15,30 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { BlogContext } from "../contexts/BlogContext";
 import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const Details = () => {
 
   const { DeleteBlog, useFetch } = useContext(BlogContext);
+  const { currentUser } = useContext(AuthContext);
+  const location = useLocation();
+  const item = location.state.item;
+  const navigate = useNavigate();
 
 
+  const deleteHandler = (id) => {
+    DeleteBlog(id);
+    navigate("/");
+  };
+
+  
+  const editHandler = ( id ) => {
+    navigate("/updateblog", { state : {item} });
+  };
+
+  
   return (
     <React.Fragment>
     <CssBaseline />
@@ -30,13 +47,12 @@ const Details = () => {
     ──── DETAILS ────
     </Typography>
       <Box sx={{ height: '92%' }}>
-        <Card sx={{ width:"85%" , height:"88%",display:"block",margin:"auto"}}>
+        <Card sx={{ width:"85%" , height:"88%",display:"block",margin:"auto" ,marginBottom:4}}>
         <CardMedia
                 component="img"
                 alt="green iguana"
                 height="60%"
-                // image={item.image}
-                image="https://cdn.pixabay.com/photo/2022/04/19/08/32/relax-7142183__480.jpg"
+                image={item.image}
                 objectfit='contain'
               />
               <CardContent sx={{
@@ -47,16 +63,13 @@ const Details = () => {
               textTransform:"uppercase"
             }}>
                   <Typography gutterBottom variant="h5" component="div">
-                    {/* {item.title} */}
-                    merhaba
+                    {item.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                  {/* {item.content} */}
-                  tarih
+                  {item.date}
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{paddingTop: ".2rem" ,textAlign:"start"}}>
-                  {/* {item.content} */}
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci nostrum maxime commodi error nam omnis quam dolores, natus veritatis praesentium libero voluptates officia amet corporis! Inventore, expedita, nisi optio, ipsam amet quisquam deleniti ipsa cum sunt ab qui eum quod voluptates! Facere quidem sed porro perspiciatis ipsum dolorum provident repellat eius enim adipisci, consectetur nemo, nobis harum ratione dignissimos unde, totam quibusdam! In, illo? Cumque hic eligendi, harum molestiae excepturi, itaque nobis asperiores nesciunt omnis repellendus soluta, veritatis laborum expedita explicabo cum quasi quia beatae. Vero expedita nisi quae hic placeat, maiores iusto quos consequatur eius qui dolore quas commodi similique velit architecto cupiditate enim omnis, debitis dolor? In id autem dignissimos, quos neque perspiciatis exercitationem. Autem mollitia, dignissimos temporibus error commodi sunt totam cum reiciendis aperiam enim perferendis, blanditiis, est adipisci delectus cupiditate alias? Consequatur quos et, recusandae, veniam tempore omnis incidunt eligendi fugit vitae illum corrupti doloremque explicabo commodi beatae atque laborum. Ducimus delectus quo illum perferendis quam autem sint ex debitis, sequi possimus minus saepe. Corporis, odio voluptatem nobis perferendis praesentium at quisquam modi perspiciatis molestias facilis repellendus, sapiente quae esse earum. Dignissimos, reprehenderit id ad unde sint perspiciatis corporis dolorum porro, deserunt magni molestias doloremque repellendus!
+                  {item.content}
                   </Typography>
               </CardContent>
               <CardContent>
@@ -66,8 +79,7 @@ const Details = () => {
                   <IconButton sx={{ color: "black"}}>
                     <AccountCircleIcon fontSize="medium" />
                   </IconButton>
-                  {/* {item.author} */}
-                  sdasdasdasdasdasd
+                  {item.author}
                 </Typography>
               </CardContent>
               <CardActions sx={{marginTop:-2}}>
@@ -82,11 +94,13 @@ const Details = () => {
         </CardActions>
 
         </Card>
+        {item.author === currentUser?.email ? (
+          <Stack direction="row" sx={{display:"flex", justifyContent:"space-around",marginY:3}}>
+            <Button size="large" variant="contained" color="primary" onClick={() =>{editHandler(item.id)}} >Update</Button>
+            <Button size="large" variant="contained" color="error"  onClick={() => {deleteHandler(item.id)}}>Delete</Button>
+          </Stack>
+        ): null}
       </Box>
-      <Stack direction="row" sx={{display:"flex", justifyContent:"space-around",marginY:3}}>
-                <Button size="large" variant="contained" color="primary"/* onClick={() =>{EditHandler(item.id,item.title,item.image,item.content)}} */>Update</Button>
-                <Button size="large" variant="contained" color="error"  onClick={() => {DeleteBlog()}}>Delete</Button>
-                </Stack>
     </Container>
   </React.Fragment>
   )

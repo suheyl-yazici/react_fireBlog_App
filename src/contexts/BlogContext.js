@@ -1,10 +1,19 @@
 import app from "../helpers/firebase";
-import { createContext,useState,useEffect } from "react";
+import { createContext,useState,useEffect, useContext } from "react";
 import { getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
+import { AuthContext } from "./AuthContext";
+
 
 export const BlogContext = createContext();
 
+
+const d = new Date();
+const time = d.toLocaleDateString();
+
+
 const BlogContextProvider = (props) => {
+
+    const { currentUser } = useContext(AuthContext);
 
 // bilgi ekleme
  const AddBlog = (info) => {
@@ -14,7 +23,9 @@ const BlogContextProvider = (props) => {
     set((newUserRef),{
         title:info.title,
         image:info.image,
-        content:info.content
+        content:info.content,
+        author: currentUser.email,
+        date: time
     })
 }
 

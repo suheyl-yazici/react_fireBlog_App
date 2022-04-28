@@ -14,26 +14,17 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { Box } from '@mui/system';
 import { useNavigate } from "react-router";
 
-const BlogCard = () => {
+const BlogCard = ({item,index}) => {
 
   const { DeleteBlog, useFetch } = useContext(BlogContext);
   const {isLoading,contactBlog} =  useFetch();
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/details");
+    navigate("/details",{ state : { item }});
   }
 
   return (
-    <div style={{display:"flex", flexWrap:"wrap", gap:40,margin:10}}>
-      {isLoading ? (
-        <h1>Loading</h1>
-      ) : 
-      contactBlog?.length === 0 ?
-      (
-        <h1>veri bulunamadı</h1>
-      ) :  (
-        contactBlog?.map((item,index) =>(
           <Card sx={{ maxWidth: 345,width:445,height:370,display:"block",marginX:"auto",marginBottom:1 }} key={index}>
               
               <CardMedia
@@ -44,7 +35,6 @@ const BlogCard = () => {
                 objectfit='contain'
                 onClick={handleClick}
               />
-                
               <CardContent onClick={handleClick} sx={{ color: "black",textAlign:"start",backgroundColor: "#EFEEFE",fontFamily: "Girassol",textTransform:"capitalize" }}>
                 <Typography gutterBottom variant="h6" component="div" sx={{textTransform:"uppercase"}}>
                   {item.title}
@@ -64,8 +54,7 @@ const BlogCard = () => {
                   <IconButton >
                     <AccountCircleIcon fontSize="medium" />
                   </IconButton>
-                  {/* {item.author} */}
-                  sdasdasdasdasdasd
+                  {item.author}
                 </Typography>
               </CardContent>
               <CardActions sx={{marginTop:-2}}>
@@ -78,14 +67,8 @@ const BlogCard = () => {
                     </IconButton>
                     <span>1</span>
         </CardActions>
-              {/* <CardActions>
-                <Button size="small"  onClick={() =>{EditHandler(item.id,item.title,item.image,item.content)}} >Edit</Button>
-                <Button size="small" onClick={() => {DeleteBlog(item.id)}}>Delete</Button>
-              </CardActions> */}
             </Card>
-        ))
-      )}
-  </div>
+ 
   )
 }
 
