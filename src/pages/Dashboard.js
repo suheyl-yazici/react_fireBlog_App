@@ -3,14 +3,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import BlogCard from "../components/BlogCard";
-// import { AuthContext } from '../contexts/AuthContext';
 import { useContext } from "react";
 import Typography from "@mui/material/Typography";
 import { BlogContext } from "../contexts/BlogContext";
 import loading from "../assets/loading.gif";
+import noData from "../assets/no-data.png";
 
 const Dashboard = () => {
-  // const {currentUser} = useContext(AuthContext);
   const { useFetch } = useContext(BlogContext);
   const { isloading, contactBlog } = useFetch();
 
@@ -35,7 +34,7 @@ const Dashboard = () => {
               <img src={loading} alt="loading" />
             </Box>
           ) : contactBlog?.length === 0 ? (
-            <h1>veri yok</h1>
+            <img src={noData} alt="nodata" />
           ) : (
             <>
               {contactBlog?.map((item, index) => (

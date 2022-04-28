@@ -5,7 +5,6 @@ import { AuthContext } from "./AuthContext";
 
 export const BlogContext = createContext();
 
-
 const d = new Date();
 const time = d.toLocaleDateString();
 

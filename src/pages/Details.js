@@ -27,23 +27,20 @@ const Details = () => {
   const item = location.state.item;
   const navigate = useNavigate();
 
-
   const deleteHandler = (id) => {
     DeleteBlog(id);
     navigate("/");
   };
 
-  
   const editHandler = ( id ) => {
     navigate("/updateblog", { state : {item} });
   };
 
-  
   return (
     <React.Fragment>
     <CssBaseline />
     <Container maxWidth="xxl">
-    <Typography variant="h2" component="div">
+    <Typography variant="h2" component="h2">
     ──── DETAILS ────
     </Typography>
       <Box sx={{ height: '92%' }}>

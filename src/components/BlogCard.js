@@ -62,7 +62,6 @@ const BlogCard = ({item,index}) => {
                     <span>1</span>
         </CardActions>
             </Card>
- 
   )
 }
 

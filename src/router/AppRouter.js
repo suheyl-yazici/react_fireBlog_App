@@ -1,3 +1,4 @@
+import React from 'react'
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
@@ -8,6 +9,7 @@ import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
 import Details from "../pages/Details";
 import UpdateBlog from "../pages/UpdateBlog";
+import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
   return (
@@ -18,10 +20,12 @@ const AppRouter = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/profil" element={<Profile />} />
-            <Route path="/newblog" element={<NewBlog />} />
-            <Route path="/details" element={<Details />} />
             <Route path="/updateblog" element={<UpdateBlog />} />
+            <Route element={<PrivateRouter />}>
+                <Route path="/details" element={<Details />} />
+                <Route path="/newblog" element={<NewBlog />} />
+                <Route path="/profil" element={<Profile />} />
+            </Route>
         </Routes>
     </Router>
   )

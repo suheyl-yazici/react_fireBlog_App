@@ -18,14 +18,13 @@ const UpdateBlog = () => {
   const item = location.state.item;
   const navigate = useNavigate();
   const initialValues={...item};
-  const {  EditBlog } = useContext(BlogContext);
+  const { EditBlog } = useContext(BlogContext);
   const [info, setInfo] = useState(initialValues);
 
 
   const handleChange = (e) => {
     e.preventDefault();
-    const { name,value } = e.target
-    
+    const { name,value } = e.target 
     setInfo({...info, [name]:value});
   }
 
@@ -35,7 +34,6 @@ const UpdateBlog = () => {
     navigate("/");
   }
   
-
   return (
 <React.Fragment>
       <CssBaseline />
