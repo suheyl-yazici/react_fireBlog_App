@@ -1,4 +1,3 @@
-import app from "../helpers/firebase";
 import { createContext,useState,useEffect, useContext } from "react";
 import { getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
 import { AuthContext } from "./AuthContext";
@@ -59,7 +58,6 @@ return {isloading,contactBlog}
 
  const DeleteBlog = (id) => {
     const db = getDatabase();
-    // const userRef = ref(db,"baglantı");
 
     remove(ref(db,"baglantı/" + id));
 }

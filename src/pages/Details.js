@@ -21,7 +21,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Details = () => {
 
-  const { DeleteBlog, useFetch } = useContext(BlogContext);
+  const { DeleteBlog } = useContext(BlogContext);
   const { currentUser } = useContext(AuthContext);
   const location = useLocation();
   const item = location.state.item;

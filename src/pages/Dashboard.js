@@ -18,7 +18,7 @@ const Dashboard = () => {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="xxl">
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="h5">
           ──── DASHBOARD ────
         </Typography>
         <Box
