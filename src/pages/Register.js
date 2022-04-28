@@ -15,8 +15,6 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 
-
-
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

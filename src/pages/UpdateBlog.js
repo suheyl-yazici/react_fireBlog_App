@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import { useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BlogContext } from "../contexts/BlogContext";
+import toastify from '../helpers/toastNotify';
 
 const UpdateBlog = () => {
 
@@ -21,7 +22,6 @@ const UpdateBlog = () => {
   const { EditBlog } = useContext(BlogContext);
   const [info, setInfo] = useState(initialValues);
 
-
   const handleChange = (e) => {
     e.preventDefault();
     const { name,value } = e.target 
@@ -31,7 +31,10 @@ const UpdateBlog = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     EditBlog(info);
-    navigate("/");
+    const item = info
+    navigate("/details",{state : { item }});
+    toastify("Güncelleme başarılı!");
+
   }
   
   return (

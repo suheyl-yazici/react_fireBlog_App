@@ -17,6 +17,7 @@ import { BlogContext } from "../contexts/BlogContext";
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { useLocation, useNavigate } from 'react-router-dom';
+import toastify from '../helpers/toastNotify';
 
 
 const Details = () => {
@@ -30,6 +31,8 @@ const Details = () => {
   const deleteHandler = (id) => {
     DeleteBlog(id);
     navigate("/");
+    toastify("Silme başarılı!");
+
   };
 
   const editHandler = ( id ) => {

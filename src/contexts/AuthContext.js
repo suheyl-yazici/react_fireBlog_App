@@ -1,6 +1,7 @@
 import app from "../helpers/firebase";
 import { createContext,useState,useEffect } from "react";
 import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import toastify from "../helpers/toastNotify";
 
 
 export const AuthContext = createContext();
@@ -20,6 +21,7 @@ const auth = getAuth(app);
             displayName: displayName, photoURL: "https://example.com/jane-q-user/profile.jpg"
         })
         navigate("/")
+        toastify("Yeni kullanıcı girişi başarılı!");
         console.log(userCredential)
     } catch (error) {
         alert(error.message);
@@ -29,7 +31,8 @@ const auth = getAuth(app);
  const signIn = async(email, password,navigate) => {
     try {
         let userCredential = await signInWithEmailAndPassword(auth, email, password)
-        navigate("/")
+        navigate("/");
+        toastify("Giriş başarılı!");
         console.log(userCredential)
     } catch (error) {
         alert(error.message);
@@ -38,7 +41,8 @@ const auth = getAuth(app);
 
  const logOut = () => {
     signOut(auth);
-    alert("logOut success");
+    toastify("Çıkış başarılı!");
+
 };
 
  const userObserver = (setCurrentUser) => {
@@ -57,6 +61,7 @@ const auth = getAuth(app);
   .then((result) => {
     console.log(result)
     navigate("/");
+    toastify("Giriş başarılı!");
   }).catch((error) => {
     console.log(error);
   });

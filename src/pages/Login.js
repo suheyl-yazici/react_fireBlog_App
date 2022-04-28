@@ -13,7 +13,7 @@ import googleImg from "../assets/google.png";
 import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-
+import CssBaseline from '@mui/material/CssBaseline';
 
 const Login = () => {
 
@@ -32,42 +32,36 @@ const Login = () => {
   }
 
   return (
-    <div
-      style={{
-        // backgroundImage: `url("https://picsum.photos/800/800")`,
-        // height: "100vh",
-        // marginTop: "-570px",
-        // backgroundSize: "cover",
-        // backgroundRepeat: "no-repeat",
-        // boxSizing: "border-box",
-        width:"100%",
-        height: "100vh",
-        backgroundImage: `url(https://picsum.photos/1000/1000)`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-        paddingTop: 2,
-      }}
-    >
-      <Container maxWidth="sm">
+    <React.Fragment>
+    <CssBaseline />
+      <Container maxWidth="xxl"
+        sx={{
+          width: '100%',
+          height: '100vh',
+          backgroundImage: `url(https://picsum.photos/1000/1000)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
+          paddingTop: 2,
+        }}>
         <Card
           sx={{
-            minWidth: 275,
-            width: 500,
-            height: 650,
+            width: "50%",
+            height: "75%",
             marginTop: 3,
+            marginX:"auto",
             display: "flex",
             justifyContent: "center",
             boxShadow:100
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", flexDirection: "column", width: "100%", height: "100%" }}>
             <div className="card-header">
               <Avatar
                 alt="blog"
                 src={BlokImg}
-                sx={{ width: 200, height: 200 }}
+                sx={{ width: "60%", height: "70%" }}
               />
             </div>
             <div className="card-header-text">
@@ -125,7 +119,7 @@ const Login = () => {
           </div>
         </Card>
       </Container>
-    </div>
+    </React.Fragment>
   );
 };
 

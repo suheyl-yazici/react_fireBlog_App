@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogContext } from "../contexts/BlogContext";
+import toastify from "../helpers/toastNotify";
 
 const initialValues = { title: "", image: "", content: "" };
 const NewBlog = () => {
@@ -28,6 +29,8 @@ const NewBlog = () => {
     e.preventDefault();
     AddBlog(info);
     navigate("/");
+    toastify("Yeni blog eklendi!");
+
   };
 
   return (
