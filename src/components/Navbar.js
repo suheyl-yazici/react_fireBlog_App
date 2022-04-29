@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import cwLogo from "../assets/cw.jpeg";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import slogo from "../assets/pngwing.com.png";
 
 
 const Navbar = () => {
@@ -45,7 +46,7 @@ const Navbar = () => {
               sx={{ my: 2, display: "block" }}
               onClick={() => navigate("/")}
             >
-              <img src={cwLogo} alt="cwlogo" height={40} width={50} />
+              <img src={slogo} alt="cwlogo" height={40} width={50} />
             </Button>
           </Typography>
 
