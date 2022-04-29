@@ -34,7 +34,6 @@ const UpdateBlog = () => {
     const item = info
     navigate("/details",{state : { item }});
     toastify("Güncelleme başarılı!");
-
   }
   
   return (

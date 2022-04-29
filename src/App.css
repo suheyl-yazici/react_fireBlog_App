@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  font-family: 'Akaya Telivigala', cursive;
-  font-family: 'Girassol', cursive;
+  font-family: 'Tapestry'  'Akaya Telivigala', cursive ; 
+  font-family: 'Girassol', cursive; 
 }
 
 .App-logo {
@@ -39,15 +39,3 @@
   }
 }
 
-.card-header {
-  background-color: #61dafb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  margin-top: 2rem;
-}
-
-.card-header-text{
-  margin-top: .5rem;
-}

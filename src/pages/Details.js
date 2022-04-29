@@ -47,7 +47,7 @@ const Details = () => {
     ──── DETAILS ────
     </Typography>
       <Box sx={{ height: '92%' }}>
-        <Card sx={{ width:"85%" , height:"88%",display:"block",margin:"auto" ,marginBottom:4}}>
+        <Card sx={{ width:"75%" , height:"78%",display:"block",margin:"auto" ,marginBottom:4}}>
         <CardMedia
                 component="img"
                 alt="green iguana"
@@ -96,10 +96,10 @@ const Details = () => {
         </Card>
         {item.author === currentUser?.email ? (
           <Stack direction="row" sx={{display:"flex", justifyContent:"space-around",marginY:3}}>
-            <Button size="large" variant="contained" color="primary" onClick={() =>{editHandler(item.id)}} >Update</Button>
+            <Button size="large" variant="contained" color="primary" onClick={() => {editHandler(item.id)}} >Update</Button>
             <Button size="large" variant="contained" color="error"  onClick={() => {deleteHandler(item.id)}}>Delete</Button>
           </Stack>
-        ): null}
+        ): null }
       </Box>
     </Container>
   </React.Fragment>

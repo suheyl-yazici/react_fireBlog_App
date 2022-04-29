@@ -24,7 +24,7 @@ const Profile = () => {
       }}
     >
       <CardContent>
-        <CardMedia component="img" height="100" image={currentUser?.photoUrl} alt="green iguana" />
+        <CardMedia component="img" height="100" image={currentUser?.photoURL} alt="Profile_photo" />
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Display Name
         </Typography>

@@ -57,7 +57,6 @@ return {isloading,contactBlog}
 
  const DeleteBlog = (id) => {
     const db = getDatabase();
-
     remove(ref(db,"baglantı/" + id));
 }
 

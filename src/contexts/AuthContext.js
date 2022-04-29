@@ -1,6 +1,6 @@
 import app from "../helpers/firebase";
 import { createContext,useState,useEffect } from "react";
-import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import toastify from "../helpers/toastNotify";
 
 
@@ -14,12 +14,9 @@ const AuthContextProvider = (props) => {
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
- const createUser = async(email,password,navigate,displayName) => {
+ const createUser = async(email,password,navigate) => {
     try {
         let userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        await updateProfile(auth.currentUser, {
-            displayName: displayName, photoURL: "https://example.com/jane-q-user/profile.jpg"
-        })
         navigate("/")
         toastify("Yeni kullanıcı girişi başarılı!");
         console.log(userCredential)

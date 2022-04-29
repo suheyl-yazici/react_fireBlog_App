@@ -10,13 +10,13 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { useNavigate } from "react-router";
 
+
 const BlogCard = ({item,index}) => {
-
-
+  
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/details",{ state : { item }});
+   navigate("/details",{ state : { item }})
   }
 
   return (
@@ -30,17 +30,17 @@ const BlogCard = ({item,index}) => {
                 objectfit='contain'
                 onClick={handleClick}
               />
-              <CardContent onClick={handleClick} sx={{ color: "black",textAlign:"start",backgroundColor: "#EFEEFE",fontFamily: "Girassol",textTransform:"capitalize", width:"100%",
-              height:"35%" }}>
-                <Typography gutterBottom variant="h6" component="div" sx={{textTransform:"uppercase",textAlign:"center"}}>
-                  {item.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary"  sx={{textAlign:"center"}}>
-                 {item.date}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{paddingTop: ".2rem" ,textAlign:"start"}}>
-                  {`${item.content}`.substring(0, 100) + '...'}
+              <CardContent onClick={handleClick} sx={{ color: "black",textAlign:"start",backgroundColor: "#EFEEFE",fontFamily: "Girassol",textTransform:"capitalize", maxWSidth:"100%",
+              height:"35%",minHeight:"35%", overflow:"hidden", paddingBottom:0.5 }}>
+                  <Typography gutterBottom variant="h6" component="div" sx={{textTransform:"uppercase",textAlign:"center"}}>
+                    {item.title}
                   </Typography>
+                  <Typography variant="body2" color="text.secondary"  sx={{textAlign:"center"}}>
+                  {item.date}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{paddingTop: ".2rem" ,textAlign:"start"}}>
+                    {`${item.content}`.substring(0, 100) + '...'}
+                    </Typography>
               </CardContent>
               <CardContent sx={{ color: "black",textAlign:"start", width:"100%" }}>
                 <Typography sx={{marginTop:-2}}

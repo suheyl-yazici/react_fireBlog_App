@@ -1,19 +1,17 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
 import BlokImg from "../assets/blok.png";
-import CardContent from "@mui/material/CardContent";
-import { Box, Stack } from "@mui/material";
+import {  Stack } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import "../App.css";
-import Container from "@mui/material/Container";
 import googleImg from "../assets/google.png";
 import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-
+import CssBaseline from "@mui/material/CssBaseline";
+import Grid from "@mui/material/Grid";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -33,14 +31,10 @@ const Register = () => {
 
   return (
   
-    <div
-      style={{
-        // backgroundImage: `url("https://picsum.photos/800/800")`,
-        // height: "90vh",
-        // marginTop: "-570px",
-        // backgroundSize: "cover",
-        // backgroundRepeat: "no-repeat",
-        // boxSizing: "border-box",
+    <Grid container component="main">
+       <CssBaseline />
+       <Grid container
+      sx={{
         width:"100%",
         height: "100vh",
         backgroundImage: `url(https://picsum.photos/1000/1000)`,
@@ -48,52 +42,56 @@ const Register = () => {
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
         backgroundSize: "cover",
-        paddingTop: 2,
+        paddingTop: 1,
+        justifyContent: "center",
       }}
     >
-      <Container maxWidth="sm">
-        <Card
-          sx={{
-            minWidth: 275,
-            width: 500,
-            height: 650,
-            marginTop: 3,
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div className="card-header">
+      <Grid item xs={12} sm={10} md={9}>
+      <Grid
+            item
+            xs={10}
+            sm={9}
+            md={7}
+            sx={{ marginTop: 3, marginX: "auto" }}
+          >
+            <Grid
+              item
+              container
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+            >
               <Avatar
                 alt="Remy Sharp"
                 src={BlokImg}
-                sx={{ width: 200, height: 200 }}
+                sx={{ width: "60%", height: "50%" }}
               />
-            </div>
-            <div className="card-header-text">
               <Typography
                 sx={{ fontSize: 30 }}
                 color="text.secondary"
-                gutterBottom
               >
                 ── REGISTER ──
               </Typography>
-            </div>
-            <CardContent>
-              <Box
+           
+            
+              <Grid item
                 sx={{
-                  backgroundColor: "white",
-                  padding: "20px",
-                  display: "flex",
-                  justifyContent: "center"
+                  bgcolor: "#f1f2f6",
+                  padding: "10px",
+                  textAlign: "center",
+                  width: "100%",
+                  maxWidth: "100%",
+                  borderRadius:5
                 }}
               >
                  <form onSubmit={handleSubmit} >
-                  <Stack spacing={2} direction="column">
+                  <Stack spacing={2} direction="column" justifyContent="center"
+                    alignItems="stretch">
                     <TextField
                       id="email"
                       label="Email"
                       variant="outlined"
+                      fullWidth
                       required
                       helperText="Email is required"
                       value={email}
@@ -101,6 +99,7 @@ const Register = () => {
                     />
                      <TextField
                       required
+                      fullWidth
                       id="outlined-password-input"
                       label="Password"
                       type="password"
@@ -120,12 +119,12 @@ const Register = () => {
                     height={30} width={45} /></Button>
                   </Stack>
                   </form>
-              </Box>
-            </CardContent>
-          </div>
-        </Card>
-      </Container>
-    </div>
+          </Grid>
+          </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 
