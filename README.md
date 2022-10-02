@@ -3,7 +3,7 @@ React ile geliştirdiğim projede firebase  realtime-database kullanılarak blog
 Yapmış olduğum projeye linkten ulaşabilirsiniz >>>> https://suheylblogpage.vercel.app/
 
 
-![Uploading blogapp1.gif…]()
+![blogapp1](https://user-images.githubusercontent.com/93797206/193450257-33786548-7725-4e44-99a7-2cace22f73a2.gif)
 
 
 ![blogapp2](https://user-images.githubusercontent.com/93797206/193450200-f3c938ce-0ed0-4d34-8062-b78849463cb6.gif)
